@@ -1,0 +1,13 @@
+﻿<div>
+    Video component
+    <video id="vid" spacebar-support event-pause="vm.handlePause(evt)" controls preload="none" style="width:50%; height:50%">
+        <source src="../../Content/493660583.mp4" type="video/mp4"/>
+    </video>
+
+    <div ng-repeat="m in vm.messages">{{m}}</div>
+
+    <div style="background-color:yellow" my-click="vm.clickHandler(vm.data)">
+        <h2 style="color:aquamarine">{{vm.data.message}}</h2>
+    </div>
+    
+</div>

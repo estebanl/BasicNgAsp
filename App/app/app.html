@@ -1,0 +1,24 @@
+﻿<div>
+    <a ng-link="['Primero']">Primero</a>
+    <a ng-link="['Segundo',{id:4}]">Segundo</a>
+    <br />
+
+    <table>
+        <tr ng-repeat="client in vm.clients">
+            <td>{{client.id}}</td>
+            <td>{{client.name}}</td>
+            <td>
+                <button ng-click="vm.update(client)">Update</button>
+                <button ng-click="vm.delete(client)">Delete</button>
+            </td>
+        </tr>
+    </table>
+
+    <form ng-submit="vm.create(cliente)">
+        <input ng-model="cliente.id" placeholder="Id" />
+        <input ng-model="cliente.name" placeholder="Name" />
+        <input type="submit" value="Save" />
+    </form>
+
+    <ng-outlet></ng-outlet>
+</div>
