@@ -1,6 +1,7 @@
 ﻿<div>
     <a ng-link="['Primero']">Primero</a>
     <a ng-link="['Segundo',{id:4}]">Segundo</a>
+    <a ng-link="['Forms']">Forms</a>
     <br />
 
     <table>
@@ -15,10 +16,14 @@
     </table>
 
     <form ng-submit="vm.create(cliente)">
-        <input ng-model="cliente.id" placeholder="Id" />
+        <div forminput>
+            <label>ID</label>
+            <input ng-model="cliente.id" placeholder="Id" />
+        </div>
+        
         <input ng-model="cliente.name" placeholder="Name" />
         <input type="submit" value="Save" />
     </form>
-
+    <directive></directive>
     <ng-outlet></ng-outlet>
 </div>

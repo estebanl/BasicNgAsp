@@ -50,6 +50,7 @@
         },
         $routeConfig: [
             { path: "/primer/...", name: 'Primero', component: 'primer', useAsDefault: true },
+            { path: "/forms", name: 'Forms', component: 'formulario' },
             { path: "/segundo/:id", name: 'Segundo', component: 'segundo' },
         ]
     })

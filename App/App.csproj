@@ -66,6 +66,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\bootstrap.css" />
+    <Content Include="app\directive.js" />
+    <Content Include="app\form.html" />
+    <Content Include="app\forminput.js" />
+    <Content Include="app\forms.js" />
+    <Content Include="app\user.js" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
