@@ -1,0 +1,19 @@
+{
+  "name": "App",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular-messages": "^1.5.5",
+    "angular-ui-bootstrap": "^1.3.2",
+    "bootstrap": "^3.3.6",
+    "lite-server": "^2.2.0",
+    "toastr": "^2.1.2"
+  }
+}

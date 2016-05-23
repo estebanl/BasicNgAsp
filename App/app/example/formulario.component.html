@@ -1,0 +1,74 @@
+﻿<div>
+    <form name="formu" novalidate form-clases ng-submit="vm.save(vm.user)">
+        <div fg>
+            <label for="Name">Name</label>
+            <input type="text" name="Name" ng-model="vm.user.name" required maxlength="10" />
+        </div>
+        <div fg>
+            <label for="LastName">Last Name</label>
+            <input type="text" name="LastName" ng-model="vm.user.lastName" required minlength="5" />
+            <div ng-messages="formu.LastName.$error" role="alert">
+                <div ng-if="formu.LastName.$touched" ng-messages-include="error-messages"></div>
+            </div>
+        </div>
+        <div fg>
+            <label for="City">City</label>
+            <select name="City"
+                    ng-model="vm.user.city"
+                    ng-options="ciudad as ciudad.tipo for ciudad in vm.ciudades track by ciudad.tipo"
+                    ng-change="vm.getZonas(vm.user.city)"></select>
+        </div>
+        <div fg ng-show="vm.zonas.length > 0">
+            <label for="Zona">Zona</label>
+            <select name="Zona"
+                    ng-model="vm.user.zona"
+                    ng-options="zona as zona.tipo for zona in vm.zonas track by zona.tipo"
+                    ng-change="vm.getSubZonas(vm.user.zona)"></select>
+        </div>
+        <div fg ng-show="vm.subZonas.length > 0">
+            <label for="SubZona">SubZona</label>
+            <select name="SubZona"
+                    ng-model="vm.user.subZona"
+                    ng-options="subzona as subzona.tipo for subzona in vm.subZonas track by subzona.tipo"></select>
+        </div>
+        <div fg>
+            <label for="Date">Date</label>
+            <p class="input-group">
+                <input name="Date" ng-model="vm.user.date" type="text" uib-datepicker-popup="{{vm.format}}" is-open="vm.popup.opened" datepicker-options="vm.dateOptions" close-text="Cerrar" current-text="Hoy" clear-text="Limpiar" alt-input-formats="vm.altInputFormats" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="vm.open()"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+            </p>
+        </div>
+        <div ng-messages="formu.Name.$error" role="alert">
+            <div ng-message="required">Please enter a value for this fiels.</div>
+            <div ng-message="maxlength">This filed can be at most 10 characters long</div>
+        </div>
+        <input ng-disabled="formu.$invalid" type="submit" class="btn btn-success btn-block" />
+    </form>
+    <pre>{{formu | json}}</pre>
+
+    <script type="text/ng-template" id="error-messages">
+        <div ng-message="required">This field is required</div>
+        <div ng-message="minlength">This fiels is too short</div>
+    </script>
+
+    <script type="text/ng-template" id="modalConfirmSave.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Desea guardar</h3>
+        </div>
+        <div class="modal-body">
+            <h4>Resumen</h4>
+            <ul class="list-unstyled">
+                <li>{{vmModal.user.name}}</li>
+                <li>{{vmModal.user.lastName}}</li>
+                <li>{{vmModal.user.city}}</li>
+                <li>{{vmModal.user.date | date}}</li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="vmModal.ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="vmModal.cancel()">Cancel</button>
+        </div>
+    </script>
+</div>

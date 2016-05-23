@@ -1,0 +1,117 @@
+﻿<div>
+    <style>
+        *.error{ color: red; font-weight: bold; }
+    </style>
+    <div>
+        <panel>
+            The data value comes from the: {{vm.dataSource}}
+        </panel>
+    </div>
+    <!--Templates-->
+    <script type="text/ng-template" id="templateAdvanced">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>This is the panel</h4>
+            </div>
+            <div class="panel-body" ng-transclude></div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="productTemplate">
+        <td>{{item.name}}</td>
+        <td><input ng-model="item.quantity" /></td>
+    </script>
+    <script type="text/ng-template" id="resetTemplate">
+        <td colspan="2"><button class="btn btn-xs btn-danger" ng-click="reset()">Reset</button></td>
+    </script>
+    <script type="text/ng-template" id="triTemplate">
+        <div class="well">
+            <div class="form-group">
+                <button class="btn btn-default">Yes</button>
+                <button class="btn btn-default">No</button>
+                <button class="btn btn-default">Not Sure</button>
+            </div>
+            <span class="error" ng-show="myForm.decision.$error.confidence">
+                You need to be sure
+            </span>
+        </div>
+    </script>
+    <script type="text/ng-template" id="popoverTemplate">
+        <div>
+            <button class="btn btn-xs btn-success">Add</button>
+            <button class="btn btn-xs btn-danger">Delete</button>
+            <button class="btn btn-xs btn-info">Details</button>
+        </div>
+    </script>
+    <script type="text/ng-template" id="modalTemplate.html">
+        <div class="modal-header">
+            <h3 class="modal-title">I'm a modal!!</h3>
+        </div>
+        <div class="modal-body">
+            <ul>
+                <li ng-repeat="item in vm.products">
+                    <a href="#" ng-click="$event.preventDefault(); vm.selected.item = item">{{item}}</a>
+                </li>
+            </ul>
+            Selected: <b>{{vm.selected.item}}</b>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="vm.ok()">Ok</button>
+            <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+        </div>
+    </script>
+    <!--Templates-->
+    <div>
+        <table class="table table-striped">
+            <thead><tr><th>Name</th><th>Quantity</th><th>Price</th></tr></thead>
+            <tbody>
+                <tr simple-repeater source="vm.products" item-name="item">
+                    <td>{{item.name}}</td><td>{{item.quantity}}</td><td>{{item.price | currency}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-default text" ng-click="vm.changeData()">Change</button>
+    </div>
+
+    <div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <table class="table table-striped" product-table="totalValue" product-data="vm.products" ng-transclude>
+                    <tr><th>Name</th><th>Quantity</th></tr>
+                    <tr ng-repeat="item in vm.products" product-item></tr>
+                    <tr><th>Total:</th><td>{{totalValue}}</td></tr>
+                    <tr reset-totals product-data="vm.products" property-name="quantity"></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div>
+            <div><tri-button name="decision" ng-model="vm.dataValue"></tri-button></div>
+            <div class="well">
+                Value: <select ng-model="vm.dataValue">
+                    <option>Yes</option>
+                    <option>No</option>
+                    <option>Not Sure</option>
+                    <option>Huh?</option>
+                </select>
+            </div>
+        <div>
+            <form name="myForm" novalidate>
+                <div><tri-button name="decision" ng-model="vm.dataValue"></tri-button></div>
+                <button uib-popover-html="vm.htmlPopover" class="btn btn-default">HTML Popover</button>
+                <p>
+                    <button uib-popover-html="vm.htmlPopover" popover-trigger="mouseenter" type="button" class="btn btn-default">Mouseenter</button>
+                </p>
+            </form>
+            <button type="button" class="btn btn-default" ng-click="vm.open()">Open modal!</button>
+            <p class="input-group">
+                <input type="text" class="form-control" uib-datepicker-popup="{{vm.format}}" ng-model="vm.dt" is-open="vm.popup1.opened" datepicker-options="vm.dateOptions" ng-required="true" close-text="Close" alt-input-formats="vm.altInputFormats" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="vm.open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+            </p>
+            {{vm.dt}}
+        </div>
+    </div>
+</div>
+Chapter 13

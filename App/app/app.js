@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    var module = angular.module('app', ['ngComponentRouter']);
+    var module = angular.module('app', ['ngComponentRouter','ui.bootstrap','ngMessages']);
 
     module
       /*  .config(function ($locationProvider) {
@@ -52,6 +52,12 @@
             { path: "/primer/...", name: 'Primero', component: 'primer', useAsDefault: true },
             { path: "/forms", name: 'Forms', component: 'formulario' },
             { path: "/segundo/:id", name: 'Segundo', component: 'segundo' },
+            { path: "/selects", name: "Selects", component: "selectsComponents" },
+            { path: "/directivas", name: "Directivas", component: "directivasComponent" },
+            { path: "/complexdirectives", name: "Complex", component: "complexDirectives" },
+            { path: "/advenceddirectives", name: "Advanced", component: "advancedDirectives" },
+            { path: "ejemplo", name: "Ejemplo", component: "ejemploComponent" },
+
         ]
     })
 

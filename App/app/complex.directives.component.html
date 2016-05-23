@@ -1,0 +1,47 @@
+﻿<div>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            Demo scope
+        </div>
+        <div class="panel-body">
+            Direct binding: <input ng-model="vm.data.name"/>
+        </div>
+        <div class="panel-body" scope-demo nameprop="{{vm.data.name}}"></div>
+        <div class="panel-body" scope-demo nameprop="{{vm.data.name + 'Lopez'}}"></div>
+        <div class="panel-body" scope-demo city="vm.getCity(vm.data.name)"></div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>Products complex</h3>
+        </div>
+        <div class="panel-body">
+            <div unordered-list="{{vm.products}}" list-property="price | currency"></div>
+        </div>
+        <div class="panel-body">
+            <unordered-list list-source="{{vm.products}}" list-property="price | currency"></unordered-list>
+        </div>
+        <div class="panel-body">
+            <div unordered-list-template="{{vm.products}}"></div>
+        </div>
+        <div class="panel-body">
+            <div unordered-list-template="{{vm.products}}" template="table" class="table table-striped" ng-repeat="count in [1,2,3]">
+
+            </div>
+        </div>
+    </div>
+    <script type="text/ng-template" id="scopeTemplate">
+        <div class="panel-body">
+            <p>Name: {{local}}, city: {{cityFn()}} <button ng-click="cityFn()">Click</button></p>
+            <p>Name: {{vm.data.name}} <input ng-model="vm.data.name"/></p>
+            <p>City: {{vm.data.city}} <input ng-model="vm.city"/></p>
+            <p>Country: {{vm.data.country}} <input ng-model="vm.country"/></p>
+            <p>Data value: {{local}}</p>
+        </div>
+    </script>
+    <script type="text/template" id="listTemplate">
+        <ul>
+            <li ng-repeat="item in data">{{item.price | currency}}</li>
+        </ul>
+    </script>
+</div>

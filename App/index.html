@@ -4,19 +4,52 @@
     <title></title>
 	<meta charset="utf-8" />
     <script src="lib/angular.js"></script>
-    <link href="app/bootstrap.css" rel="stylesheet" />
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="node_modules/toastr/build/toastr.min.css" rel="stylesheet" />
     <base href="/" />
 </head>
-<body ng-cloak>
-
-    <app></app>
+<body ng-cloak class="container">
     
+    <app></app>
+
+
+    <script src="lib/jquery-2.2.4.min.js"></script>
     <script src="lib/angular_1_router.js"></script>
+    <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+    <script src="node_modules/angular-messages/angular-messages.min.js"></script>
     <script src="app/app.js"></script>
     <script src="app/service.js"></script>
     <script src="app/forms.js"></script>
     <script src="app/user.js"></script>
     <script src="app/forminput.js"></script>
     <script src="app/directive.js"></script>
+    <script src="app/selects.component.js"></script>
+    <script src="app/service.data.js"></script>
+    <script src="app/directivas.component.js"></script>
+    <script src="app/complex.directives.component.js"></script>
+    <script src="app/advanced.directives.component.js"></script>
+    <script src="node_modules/toastr/toastr.js"></script>
+    <script src="app/example/formulario.component.js"></script>
+    <script src="app/example/ciudadesServicio.js"></script>
+    <script>
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+        toastr["info"]("Bienvenido")
+    </script>
 </body>
 </html>

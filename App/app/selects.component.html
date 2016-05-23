@@ -1,0 +1,21 @@
+﻿<div>
+    <!--Selects {{ vm.values | json}}-->
+
+    <form>
+        <div class="form-group">
+            <div>
+                <select ng-model="vm.selected" class="form-control" ng-options="valor as valor.tipo for valor in vm.values track by valor.tipo" ng-change="vm.getChildren(vm.selected)"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <select ng-model="vm.selected2" class="form-control" ng-options="valo as valo.tipo for valo in vm.values2 track by valo.tipo" ng-change="vm.getChildren(vm.selected2)"></select>
+            </div>
+        </div>   
+        <div class="form-group" ng-show="vm.tipos">
+            <div>
+                <select ng-model="vm.tipo" class="form-control" ng-options="val as val.tipo for val in vm.tipos track by val.id"></select>
+            </div>
+        </div>
+    </form>
+</div>

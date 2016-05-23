@@ -1,0 +1,57 @@
+﻿<div>
+    <style>
+        .bold {
+            font-weight:bold;
+        }
+    </style>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3>Products</h3>
+    </div>
+    <div class="panel-body">
+        <button class="btn btn-primary" ng-click="vm.incrementPrices()">Change prices</button>
+        <div class="row">
+            <div class="col-sm-6">
+                <div ng-repeat="p in vm.products">{{p.price}}</div>
+            </div>
+            <div class="col-sm-6">
+                <div unordered-list="{{vm.products}}" list-property="price | currency"></div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="panel-body">
+        <ol demo-directive>
+            <li>Apples</li>
+            <li>
+                <ul>
+                    <li>Bananas</li>
+                    <li>Cherries</li>
+                    <li>Oranges</li>
+                </ul>
+            </li>
+            <li>Oranges</li>
+            <li>Pears</li>
+        </ol>
+    </div>-->
+    <div class="panel-body">
+        <h3>Fruit</h3>
+        <div demo-directive >
+            <button class="btn btn-xs btn-primary">Add bold</button>
+        </div>
+    </div>
+    <div class="panel-body" >
+        <form form-clases>
+            <div fg>
+                <div>
+                    <input type="email" class="" placeholder="Email"/>
+                </div>
+            </div>
+            <div fg>
+                <div>
+                    <input type="email" placeholder="Email" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
