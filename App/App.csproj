@@ -74,6 +74,8 @@
     <Content Include="app\bootstrap.css" />
     <Content Include="app\complex.directives.component.html" />
     <Content Include="app\complex.directives.component.js" />
+    <Content Include="app\contactos\contact.create.component.html" />
+    <Content Include="app\contactos\contact.create.component.js" />
     <Content Include="app\directivas.component.html" />
     <Content Include="app\directivas.component.js" />
     <Content Include="app\directive.js" />

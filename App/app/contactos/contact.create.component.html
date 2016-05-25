@@ -1,0 +1,78 @@
+﻿<div>
+    <form form-clases name="contactoForm" novalidate>
+        <div>
+            <label>Identificacion</label>
+            <input ng-model="vm.contacto.Identificacion" required/>
+        </div>
+        <div>
+            <label>Prefijo</label>
+            <input ng-model="vm.contacto.Prefijo" required />
+        </div>
+        <div>
+            <label>Nombres</label>
+            <input ng-model="vm.contacto.Nombres" required />
+        </div>
+        <div>
+            <label>Apellidos</label>
+            <input ng-model="vm.contacto.Apellidos" required />
+        </div>
+        <div>
+            <label>Ciudad</label>
+            <select ng-model="vm.contacto.Ciudad"></select>
+        </div>
+        <div>
+            <label>Zona</label>
+            <select ng-model="vm.contacto.Zona"></select>
+        </div>
+        <div>
+            <label>SubZona</label>
+            <select ng-model="vm.contacto.SubZona"></select>
+        </div>
+        <div>
+            <label>Tipo Contacto</label>
+            <select ng-model="vm.contacto.TipoContacto"></select>
+        </div>
+        <div>
+            <label>Tipo Prioridad</label>
+            <select ng-model="vm.contacto.TipoPrioridad"></select>
+        </div>
+        <div>
+            <label>Cargo</label>
+            <select ng-model="vm.contacto.Cargo"></select>
+        </div>
+        <div>
+            <label>Es contacto principal</label>
+            <input type="checkbox" ng-model="vm.contacto.EsContactoPrincipal"/>
+        </div>
+        <div>
+            <label>Sucursales</label>
+            <select ng-model="vm.contacto.Sucursales"></select>
+        </div>
+        <div>
+            <label>Direcciones</label>
+            <input ng-model="vm.contacto.Direcciones" required />
+        </div>
+        <div>
+            <label>Emails</label>
+            <input ng-model="vm.contacto.Emails" required />
+        </div>
+        <div class="row">
+            <div class="col-sm-8" id="contenedorTelefonos">
+                <div>
+                    <label>Telefonos</label>
+                    <input ng-model="vm.contacto.Telefonos" required />
+                </div>
+            </div>
+            <div class="col-sm-4">
+               <button type="button" ng-click="vm.agregarTelefonos()"><span class="glyphicon glyphicon-plus"></span></button>
+            </div>
+        </div>
+    </form>
+
+    <script type="text/ng-template" id="extratelefonos">
+        <div>
+            <label>Telefonos</label>
+            <input ng-model="vm.contacto.Telefonos" required />
+        </div>
+    </script>
+</div>

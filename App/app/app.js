@@ -57,6 +57,7 @@
             { path: "/complexdirectives", name: "Complex", component: "complexDirectives" },
             { path: "/advenceddirectives", name: "Advanced", component: "advancedDirectives" },
             { path: "ejemplo", name: "Ejemplo", component: "ejemploComponent" },
+            { path: "/contact", name: "Contact", component: "createContact" }
 
         ]
     })
