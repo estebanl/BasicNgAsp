@@ -10,6 +10,7 @@
     <a ng-link="['Contact']">Contact</a>
     <br />
 
+
     <table>
         <tr ng-repeat="client in vm.clients">
             <td>{{client.id}}</td>
@@ -20,6 +21,30 @@
             </td>
         </tr>
     </table>
+
+    <div class="input-group" ng-repeat="em in vm.emails">
+        <input type="text" class="form-control" disabled value="{{em}}" placeholder="">
+        <span class="input-group-btn">
+            <button ng-click="vm.remove(em)"  class="btn btn-default" type="button"><span class="glyphicon glyphicon-remove"></span></button>
+        </span>
+    </div>
+    <form form-clases novalidate name="extra">
+        <div class="row">
+            <div class="col-sm-6">
+                <input ng-model="vm.correo" name="extraemail" placeholder="Email" type="email"/>
+                <div ng-repeat="em in vm.emails"><input disabled  class="form-control" value="{{em}}" /><button ng-click="vm.remove(em)" ><span  class="glyphicon glyphicon-remove"></span></button></div>
+            </div>
+            <div class="col-sm-1">
+                <button class="btn btn-success" ng-click="vm.agregarEmail(email)" ng-disabled="extra.$error.email"><span class="glyphicon glyphicon-plus"></span></button>
+            </div>
+        </div>
+        <pre>{{extra | json}}</pre>
+        <ul>
+            <li ng-repeat="em in vm.emails">{{em}}<button class="btn btn-success" ng-click="vm.remove(em)"><span  class="glyphicon glyphicon-remove"></span></button></li>
+        </ul>
+        <pre>{{vm.emails}}</pre>
+    </form>
+
 
     <form ng-submit="vm.create(cliente)">
         <div forminput>

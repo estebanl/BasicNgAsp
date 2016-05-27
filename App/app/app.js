@@ -14,6 +14,22 @@
 
             var vm = this;
             
+            vm.emails = [];
+            vm.agregarEmail = function (email) {
+                if (! (vm.emails.indexOf(vm.correo) > -1)) {
+                    vm.emails.push(vm.correo);
+                }
+            };
+            vm.remove = function (em) {
+                console.log(em);
+                var index = vm.emails.indexOf(em);
+                if (index> -1) {
+                    vm.emails.splice(index, 1);
+                }
+                
+                console.log(index);
+            };
+
             vm.$onInit = function () {
                 crud.getAll().then(function (data) {
                     vm.clients = data.data;
